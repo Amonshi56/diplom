@@ -1,0 +1,21 @@
+---
+- hosts: elastic
+  remote_user: debian
+  become: yes
+  become_method: sudo
+  roles:
+    - elastic
+
+- hosts: kibana
+  remote_user: debian
+  become: yes
+  become_method: sudo
+  roles:
+    - kibana
+
+- hosts: webservers
+  remote_user: debian
+  become: yes
+  become_method: sudo
+  roles:
+    - filebeat

@@ -1,0 +1,18 @@
+---
+- hosts: zabbix
+  remote_user: debian
+  become: yes
+  become_method: sudo
+  roles:
+    - zabbix
+
+- hosts:
+    webservers
+    bastion
+    elastic
+    kibana
+  remote_user: debian
+  become: yes
+  become_method: sudo
+  roles:
+    - zabbix_agent    
